@@ -31,7 +31,7 @@ let addNote = (title, body) => {
 };
 
 let getAll = () => {
-  console.log('Getting all notes');
+  return fetchNotes();
 };
 
 let getNote = (title) => {
@@ -42,17 +42,17 @@ let getNote = (title) => {
 
 let removeNote = (title) => {
   let notes = fetchNotes();
-  //filteroutnotes: returns true if note.title is not equal to title
   let filteredNotes = notes.filter((note) => note.title !== title);
   saveNotes(filteredNotes);
 
   return notes.length !== filteredNotes.length;
 };
 
+
 let logNote = (note) => {
   console.log('--');
-  console.log(`Title: ${note.title}`)
-  console.log(`Title: ${note.body}`)
+  console.log(`Title: ${note.title}`);
+  console.log(`Body: ${note.body}`);
 };
 
 
@@ -60,6 +60,6 @@ module.exports = {
   addNote,
   getAll,
   getNote,
-  removeNote
+  removeNote,
   logNote
 };
